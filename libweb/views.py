@@ -9,7 +9,7 @@ from databaseop import *
 def homepage(req):
     return render(req, 'index.html')
     
-#返回书的信息
+#返回图书的信息
 def getbook(req):
     bookinfo = GetBookInfo()
     books=[]
@@ -21,7 +21,7 @@ def getbook(req):
         books.append(newnode)
     return render_to_response('bookshow.html',{'books':books})
 
-#返回作者信息至页面    
+#返回作者信息到页面    
 def getauthor(req):
     authorinfo = GetAuthInfo()
     authors=[]

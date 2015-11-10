@@ -17,6 +17,8 @@ PASSWORD = '1234'
 DBNAME = 'library'
 CHARSET = 'utf8'
 """
+
+#初始化
 def initial():
     try:
         con = MySQLdb.connect(host=HOST,user=USER,passwd=PASSWORD,db=DBNAME,port=PORT,charset=CHARSET)
