@@ -1,0 +1,57 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>ADD New Book | 添加新的书</title>
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div class="showbookorauthor" style="text-align:center;">
+            <form method="get" action="/savebook/" id="add-form-book">
+				<div class="input_box">
+					<input id="title" tabindex="1" required="required" type="text" name="title" placeholder="Title" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="isbn" tabindex="2" required="required"  type="text" name="isbn" placeholder="ISBN" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="author" tabindex="3" required="required" type="text" name="author" placeholder="Author" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="price" tabindex="4" required="required"  type="text" name="price" placeholder="Price" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="publisher" tabindex="5" required="required" type="text" name="publisher" placeholder="Publisher" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="publishdate" tabindex="6" required="required" type="text" name="publishdate" placeholder="Publish Date(如:2015-10)" class="form_input"/>
+				</div>
+				<div id="submit_btn_box">
+						<input type="submit" tabindex="7" name="submit" value="提交" id="submit-btn"/>
+				</div>
+			</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>AuthorShow | 名家云集</title>
+	
+	
+	<script>
+		function addauthor(){
+			window.location.href="/authoradd";
+		}
+	</script>
+	
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div id="search">
+            <form method="get" action="/searchauthor/">
+				<input type="text" required="required" name="authorname" placeholder="请输入作者姓名" id="search-box"/>
+                <input type="submit" value="" id="search-btn"/>
+            </form>
+        </div>
+		<div id="showbookorauthor">
+			<table border="1" class="datalist">
+				<thead>
+					<div>
+						<h2 class="au">作 者 库 一 览</h2>
+						<div class="addbtn" onclick="addauthor()"></div>
+					</div>
+				</thead>
+				<tbody>
+                    <tr>
+						<th class="number">序号</th>
+                        <th class="author">姓名</th>
+                        <th class="age">年龄</th>
+                        <th class="country">国籍</th>
+                    </tr>
+                    {%for author in authors%}
+                    <tr>
+						<td>{{forloop.counter}}</td>
+                        {%for i in author%}
+                        {%ifequal forloop.counter 1%}
+                        <td><a href="/authordetail/{{forloop.parentloop.counter}}">{{i}}</a></td>
+                        {%endifequal%}
+                        {%ifequal forloop.counter 2%}
+                        <td>{{i}}</td>
+                        {%endifequal%}
+                        {%ifequal forloop.counter 3%}
+                        <td>{{i}}</td>
+                        {%endifequal%}
+                        {%endfor%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+			</table>	
+		</div>
+	</div>
+	
+	<div id="footer">
+		<br/><br/><br/>
+		哈尔滨工业大学&nbsp;&nbsp;哈尔滨市南岗区西大直街92号&nbsp;&nbsp;邮编 150006<br/><br/>
+		Copyright &copy; 2015 Xiao Qing 版权所有 <br/><br/><br/>
+	</div>
+</body>
+</html>

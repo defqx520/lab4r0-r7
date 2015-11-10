@@ -1,0 +1,67 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>Author Detail | {{authorname}}</title>
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div id="search">
+            <form method="get" action="/searchauthor/">
+                <input type="text" required="required" name="authorname" placeholder="请输入作者姓名" id="search-box"/>
+                <input type="submit" value="" id="search-btn" />
+            </form>
+        </div>
+		<div id="showbookorauthor">
+			<table border="1" class="datalist">
+				<thead><h2>详细信息</h2></thead>
+				<tbody>
+					<tr>
+						<th class="authorname">Name</th>
+						<td class="bookname">{{authorname}}</td>
+					</tr>
+					<tr>
+						<th>Age</th>
+						<td>{{age}}</td>
+					</tr>
+					<tr>
+						<th>Country</th>
+						<td>{{country}}</td>
+					</tr>
+					<tr>
+						<th>Works</th>
+						<td>
+							{%for book in books%}
+								《{{book}}》<br/><br/>
+							{%endfor%}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</body>
+</html>

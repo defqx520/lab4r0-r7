@@ -1,0 +1,64 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>Qing Xiao's Book Station | HomePage</title>
+	
+	<script>
+		function showOrHide(id, dp){
+			document.getElementById(id).style.display=dp;
+		}
+		
+	</script>
+	
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div id="search">
+            <form method="get" action="/searchauthor/">
+                <input type="text" name="authorname" placeholder="请输入作者姓名" id="search-box"/>
+                <input type="submit" value="" id="search-btn"/>
+            </form>
+        </div>
+		<div id="showbookorauthor">
+			<p><h1>Welcom to the Book Station of Qing Xiao's!</h1></p><br/>
+			<p><h3>Here you can look through the books I have collected, and some authors I have added.Now you can manage my Book Station BY :</h3></p>
+			<div style="text-align:center;">
+				<br/>
+				<p><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO.1 Adding A New Book;</h3></p>
+				<p><h3>NO.2 Deleting A Book;</h3></p>
+				<p><h3>&nbsp;&nbsp;NO.3 Updating A Book;</h3></p>
+				<p><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO.4 Looking Through A Book;</h3></p>
+				<p><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO.5 Searching An Author.</h3></p>
+			</div>
+		</div>
+	
+	<div id="footer">
+		<br/><br/><br/>
+		哈尔滨工业大学&nbsp;&nbsp;哈尔滨市南岗区西大直街92号&nbsp;&nbsp;邮编 150006<br/><br/>
+		Copyright &copy; 2015 Xiao Qing 版权所有 <br/><br/><br/>
+	</div>
+</body>
+</html>

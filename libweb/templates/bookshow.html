@@ -1,0 +1,87 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>BookShow | 书香四溢</title>
+	
+	
+	<script>
+		function addbook(){
+			window.location.href="/bookadd";
+		}
+	</script>
+	
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div id="search">
+            <form method="get" action="/searchauthor/">
+                <input type="text"  required="required" name="authorname" placeholder="请输入作者姓名" id="search-box"/>
+                <input type="submit" value="" id="search-btn" />
+            </form>
+        </div>
+		<div id="showbookorauthor">
+			<table border="1" class="datalist">
+				<thead>
+                    <h2>收 藏 的 图 书</h2>
+					<div class="addbtn" onclick="addbook()"></div>
+				</thead>
+				<tbody>
+                    <tr>
+                        <th class="number">序号</th>
+                        <th class="bookname">书名</th>
+                        <th class="author">作者</th>
+                        <th class="price">价格</th>
+                        <th class="operate">操作</th>
+                    </tr>
+                    {%for book in books%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        {%for i in book%}
+                        {%ifequal forloop.counter 1%}
+                        <td><a href="/bookdetail/{{forloop.parentloop.counter}}">《{{i}}》</a></td>
+                        {%endifequal%}
+                        {%ifequal forloop.counter 2%}
+                        <td>{{i}}</td>
+                        {%endifequal%}
+                        {%ifequal forloop.counter 3%}
+                        <td>{{i}}</td>
+                        {%endifequal%}
+                        {%endfor%}
+                        <td><a href="/delbook/{{forloop.counter}}">删除</a> | <a href="/bookupdate/{{forloop.counter}}">修改</a></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+			</table>	
+		</div>
+	</div>
+	
+	<div id="footer">
+		<br/><br/><br/>
+		哈尔滨工业大学&nbsp;&nbsp;哈尔滨市南岗区西大直街92号&nbsp;&nbsp;邮编 150006<br/><br/>
+		Copyright &copy; 2015 Xiao Qing 版权所有 <br/><br/><br/>
+	</div>
+</body>
+</html>

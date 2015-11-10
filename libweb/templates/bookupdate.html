@@ -1,0 +1,60 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>Update Book | 修改书相关信息</title>
+	
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div class="showbookorauthor" style="text-align:center;">
+            <form method="get" action="/updatebook/" id="add-form-book">
+					<input id="num" type="hidden" name="num" value="{{num}}"  class="form_input"/>
+				<div class="input_box">
+					<input id="title" tabindex="1" required="required" type="text" name="title" value="{{title}}" placeholder="Title" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="isbn" tabindex="2" required="required" type="text" name="isbn" value="{{isbn}}" placeholder="ISBN" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="author" tabindex="3" required="required" type="text" name="author" value="{{author}}" placeholder="Author" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="price" tabindex="4" required="required" type="text" name="price" value="{{price}}" placeholder="Price" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="publisher" tabindex="5" required="required" type="text" name="publisher" value="{{publisher}}" placeholder="Publisher" class="form_input"/>
+				</div>
+				<div class="input_box">
+					<input id="publishdate" tabindex="6" required="required" type="text" name="publishdate" value="{{publishdate}}" placeholder="Publish Date" class="form_input"/>
+				</div>
+				<div id="submit_btn_box">
+						<input type="submit" tabindex="7"  name="submit" value="保存" id="submit-btn"/>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

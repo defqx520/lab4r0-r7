@@ -1,0 +1,71 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static "css/mylib.css" %}" type="text/css"/>
+	<title>Book Detail | 《{{title}}》</title>
+</head>
+
+<body>
+	<!--顶部-->
+	<div id="top">
+		<div id="top_bar">
+			<ul>
+				<li>
+					<a href="/">首页</a>
+				</li>
+                <b>|</b>
+				<li>
+                    <a href="/bookshow">书香四溢</a>
+                </li>
+				<b>|</b>
+				<li>
+                    <a href="/authorshow">名家云集</a>
+                </li>
+			</ul>	
+    	</div>
+	</div>
+	
+	<div id="content">
+        <div id="search">
+            <form method="get" action="/searchauthor/">
+                <input type="text" required="required" name="authorname" placeholder="请输入作者姓名" id="search-box"/>
+                <input type="submit" value="" id="search-btn" />
+            </form>
+        </div>
+		<div id="showbookorauthor">
+			<table border="1" class="datalist">
+				<thead><h2>详细信息</h2></thead>
+				<tbody>
+					<tr>
+						<th class="authorname">Title</th>
+						<td class="bookname">《{{title}}》</td>
+					</tr>
+					<tr>
+						<th>ISBN</th>
+						<td>{{isbn}}</td>
+					</tr>
+					<tr>
+						<th>Author</th>
+						<td>{{author}}</td>
+					</tr>
+					<tr>
+						<th>Publisher</th>
+						<td>{{publisher}}</td>
+					</tr>
+					<tr>
+						<th>Publish Date</th>
+						<td>{{publishdate}}</td>
+					</tr>
+					<tr>
+						<th>Price</th>
+						<td>{{price}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</body>
+</html>
